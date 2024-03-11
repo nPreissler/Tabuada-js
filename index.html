@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada js</title>
+</head>
+<body>
+
+    <header>
+        <h2>Gerador de Tabuada</h2>
+    </header>
+
+    <div class="borders">
+        <div class="container">
+            <input type="number" id="numInput" placeholder="Digite um número">
+            <br>
+            <button onclick="geradorTabuada()">Gerar Tabuada</button>
+            <div id="tabuada"></div>
+        </div>
+    </div>
+
+    <script>
+
+        function geradorTabuada() {
+            var numInput = document.getElementById('numInput').value;
+            var tabuadaDiv = document.getElementById('tabuada');
+            tabuadaDiv.innerHTML = '';
+
+            if (!numInput || isNaN(numInput)) {
+                tabuadaDiv.innerHTML = '<p> Por favor, insira um valor válido.</p>';
+                return;
+            }
+
+            var tableHTML = "<h3> Tabuada de "  + numInput + " </h3><table border ='1'><tr><th>Número</th><th>Resultado</th></tr>";
+
+                for(var i = 1; i <= 10; i++){
+                    tableHTML += "<tr><td>" + numInput + " x " + i + "</td><td>" + (numInput * i) + "</td></tr>"; 
+                }
+
+                tableHTML += "</table>";
+                tabuadaDiv.innerHTML = tableHTML;
+        }
+
+    </script>
+
+    <footer>
+        Developed By: <a href="https://github.com/nPreissler">nPreissler</a>
+    </footer>
+    
+</body>
+</html>
